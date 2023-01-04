@@ -51,6 +51,7 @@ const Main = () => {
     if (adminToken) {
       try {
         const res = await getData(filter, search, pageNum);
+
         const { mainPageCount, mainPageList } = res.data;
         if (mainPageCount === '0') {
           setNothing(true);

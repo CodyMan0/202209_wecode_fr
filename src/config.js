@@ -1,4 +1,4 @@
-const BASE_URL = `http://10.133.28.181:8000`;
+const BASE_URL = `http://localhost:8000`;
 
 //10.133.28.181:8000
 // 도커 IP
