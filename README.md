@@ -1,18 +1,20 @@
-# 📭 KODA
+# 📭[KODA] 설문조사 웹 어플리케이션 
+<br>
+<img src="https://user-images.githubusercontent.com/93697790/210754031-b80985e9-1b2d-4a35-ba1c-902ef7b8a663.png" width="1440" alt="no-img">
+<br>
 
----
+## 👉 [KODA 노션](https://gifted-jacket-9e1.notion.site/KODA-9ea2f0163f4e4121b3c979279ae196e7)
 
-개인정보 보안 문제를 해결하고 데이터를 자산화 할 수 있는 KODA 설문조사 웹 어플리케이션
+## BPS Form – Survey Tool 프로젝트
 
-<img width="1440" alt="스크린샷 2022-10-15 오후 1 57 22" src="https://user-images.githubusercontent.com/95282989/195969547-07829d43-6bfd-4d8c-8cac-cf4479857adc.png">
-
-## 프로젝트 소개
-
----
-
-**개인 정보 보안 이슈**와 **고객 데이터를 자산화** 할 수 있도록 만든 ReactJs 기반 SPA 설문조사 Application 입니다.
+ Survey Tool 프로젝트로 서비스 설문조사 툴을 이용함에 따라 발생할 수 있는 개인정보 보호 이슈를 방지하고 고객 정보 및 응답 데이터를 자산화하기 위해 **내부 서베이 툴**을 구현했습니다.
 
 **유저 플로우** : 매니저 로그인 👉 템플릿 선택 👉 에디터 제작 👉 설문지 전송 👉 응답자 설문지 응답 👉 통계 확인
+
+### 프로젝트 기간
+
+- 프로젝트 구현 : 22.9.19 ~ 22.10.13
+
 
 ---
 
@@ -69,15 +71,13 @@
 </table>
 
 [백앤드 깃허브](https://github.com/kolonDT/202209_wecode_en)
-
-### 프로젝트 기간
-
-- 프로젝트 구현 : 22.9.19 ~ 22.10.13
+<br>
+<br>
 
 ## 🧰 Front-end 기술 Tools 기술 스택
 
 <div align=left>
-<img src="https://img.shields.io/badge/JavaScript-FFCA28?style=flat-square&logo=javascript&logoColor=white"/>&nbsp;
+  <img src="https://img.shields.io/badge/JavaScript-FFCA28?style=flat-square&logo=javascript&logoColor=white"/>&nbsp;
   <img src="https://img.shields.io/badge/React.js-58c3cc?style=flat-square&logo=React&logoColor=white"/>&nbsp;
   <img src="https://img.shields.io/badge/React.js-58c3cc?style=flat-square&logo=React&logoColor=white"/>&nbsp;
   <img src="https://img.shields.io/badge/CRA-58c3cc?style=flat-square&logo=Create-React-App&logoColor=white"/>&nbsp;
@@ -85,25 +85,60 @@
   <img src="https://img.shields.io/badge/eslint-000066?style=flat-square&logo=eslint&logoColor=white"/>&nbsp;
   <img src="https://img.shields.io/badge/prettier-00CC00?style=flat-square&logo=eslint&logoColor=white"/>&nbsp;
   <img src="https://img.shields.io/badge/styled-components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"/>&nbsp;
- <img src="https://img.shields.io/badge/Notion-1c1c1c?style=flat-square&logo=Notion&logoColor=white"/> &nbsp;
- <img src="https://img.shields.io/badge/Slack-553830?style=flat-square&logo=Slack&logoColor=white"/> &nbsp;
- <img src="https://img.shields.io/badge/Gather-8B00F?style=flat-square&logo=Gather&logoColor=white"/>&nbsp;
-
+  <img src="https://img.shields.io/badge/Notion-1c1c1c?style=flat-square&logo=Notion&logoColor=white"/> &nbsp;
+  <img src="https://img.shields.io/badge/Slack-553830?style=flat-square&logo=Slack&logoColor=white"/> &nbsp;
+  <img src="https://img.shields.io/badge/Gather-8B00F?style=flat-square&logo=Gather&logoColor=white"/>&nbsp;
 </div>
+<br>
+<br>
 
-### 이주영: 공통 네브, 관리자 에디터 페이지, 고객 설문지 페이지
+## 코다 주요 기능
 
-<br>
-<br>
-- 1. 공통 네브 Router 기능 (중첩 라우팅)
-<br>
-<br>
+- **로그인** 🤝
+  - 관리자 직급에게 아이디와 비밀번호 권한을 부여하여 일반 로그인 가능
+- **서베이 확인하기**✅
+  - 로그인 후 메인 페이지로 이동, 전체 서베이를 최신순으로 조회 가능
+  - 각 서베이 응답자 수 조회 가능
+  - 전체 / 대기중 / 진행중 / 완료 카테고리 별로 투표글을 필터링 조회 가능
+  - 필터와 함께 서베이 제목으로 서치 가능
+  - 진행중인 서베이 강제 종료 가능 (해당 서베이 종료 날짜를 앞당겨 종료 처리,  조회 가능)
+  - 서베이 삭제 가능 (데이터 삭제 기능)
+- **서베이 만들기**💬
+  - 새로운 설문지 혹은 템플릿을 제공하여 설문지 제작 가능
+  - 선택 항목 중 필요한 항목을 사용하여 설문지 커스텀 기능
+  - 필수적인 정보는 유효성 검사를 통해 사용자에게 알려주는 기능
+  - 중복 여부와 익명 여부 랜딩 페이지를 커스텀할 수 있도록 관리자 기능
+- **커스텀 랜딩 페이지 지정하기**🆓
+  - 유료 서비스 중 하나인 랜딩 페이지 url 기능을 무료로 사용 가능 
+- **서베이 공유하기**📖
+  - 서베이 제목 클릭시 응답자 설문이 담긴 링크 확인 가능
+  - 링크 복사 기능
+- **통계 확인하기**👤
+  - 서베이 제목 / 응답자 수 / 상태 확인 가능
+  - 응답자 정보 (이름, 핸드폰 번호) 확인 가능
+  - 서베이 각 항목 응답률 확인 가능
+<br>  
+
+  
+## 🔧 **기술적 의사결정**
+
+| 사용 기술 | 기술 결정 이유 |
+| --- | --- |
+| **`react-hook-form`** | react-hook-form vs SurveyJs<br><br>설문지를 JSON 형식으로 백앤드와 주고 받아야했습니다.survey.js를 활용하면 JSON 형식으로 데이터를 쉽게 만들 수 있고 UI로도 보여줄 수도 있었지만, 비용이 든다는 문제가 있었습니다. 또한 최소 10개 이상의 input이 있는 설문지 제작 페이지에서 렌더링 이슈를 문제를 해결해야 했습니다. 따라서 비제어 컴포넌트 방식을 구현된 react-hook-form을 활용하여 렌더링 이슈와 설문지를 JSON 형식으로 만들기로 했습니다. |
+| **`recharts`** | nivo vs Recharts<br><br>내부에서 상업용으로 쓰일 수 있기 때문에 최대한 오픈 소스를 사용하고자 했습니다.이에 차트 라이브러리인 nivo 와 Recharts 고민했고, nivo는combined charts를 제공해주지 않는다는 점을 고려해 가장 많이 쓰이는 Recharts를 사용하기로 결정했습니다. |
+| **`Axios`** | Axios vs JS Fetch API<br><br>response timeout (fetch에는 없는 기능) 처리 방법이 존재 Promise 기반으로 만들어졌기 때문에 데이터를 다루기 편리합니다. 브라우저 호환이 fetch보다 뛰어나기 때문에 웹을 염두한 코다 서비스에 적합하다고 생각했습니다. |
+| **`Styled components`** | CSS-in-JS vs CSS-in-CSS<br><br>css를 파일 분리 없이 유지 보수 할 수 있는점이 장점이라 생각했습니다. props나 state에 따른 동적 스타일링이 가능합니다. 그 중 점유율이 높은 styled components를 사용하기로 결정했습니다. |
+
+---
+
+## 기여한 부분
+
+### 공통 Nav, 설문 제작 페이지, 고객 설문 제작 페이지 
+#### 공통 네브 Router 기능 (중첩 라우팅)
 React-Router-dom의 Outlet 내장 함수를 활용하여 원하는 페이지에서만 상단 nav가 보이도록 함.
-<br>
-<br>
-- 2. 선택 질문 항목 추가 및 삭제 기능 
-<br>
-<br>
+
+#### 선택 질문 항목 추가 및 삭제 기능 
+
 <img src="https://user-images.githubusercontent.com/93697790/197448417-5bcb5aa5-2775-48b8-aa76-14ac81765f3e.gif" width="600px">
 
 ```jsx
@@ -136,9 +171,7 @@ export const QUESTION_ARRAY = (sortIndex, formId, ...args) => {
 <br>
 <br>
 
-- 3.객관식 질문 양식 중 문제 추가 삭제 기능
-  <br>
-  <br>
+#### 객관식 질문 양식 중 문제 추가 삭제 기능
   <img src="https://user-images.githubusercontent.com/93697790/196628966-e0f21167-9328-433b-a4f6-544c8e6f329d.gif" width="600px">
 
 ```jsx
@@ -157,11 +190,9 @@ const addOptionIndexes = () => {
 
 객관식 문항이라는 option을 받고 option의 index는 계속 변하는 값이므로 state로 지정하여 관리했습니다. 그리고 이 값을 map을 사용하여 option의 갯수에 따라 문항이 생성되도록 만들었습니다. 여기서 어려움이 있었던 부분은 addOptionIndexes 부분이었습니다,. Object.keys(option)을 사용하면 결과값이 배열에 **문자열**이 담기는 것을 모르고 기능 작동이 안되는 것이었습니다. 알고보니 optionIndexes.length의 결과값이 숫자타입이라는 것을 알게 됐고 어려워보였던 문제지만 굉장히 간단한 문제였다는 것을 알게 됐습니다.
 
-<br>
-<br>
-- 4. 폼 데이터 생성 및 삭제 기능 
-<br>
-<br>
+
+#### 폼 데이터 생성 및 삭제 기능 
+
 <img src="https://user-images.githubusercontent.com/93697790/197449438-9b72c090-8a08-470f-a15b-d0b2de9ba2fa.gif"
 width="600px">
 
@@ -193,18 +224,14 @@ const methods = useForm({ shouldUnregister: true });
 
 여기서 많이 해맸었습니다. 선택 항목을 삭제했음에도 불구하고 보내지는 폼에서는 적용이 되지 않는 어려움을 마주했습니다. 하루 종일 다양한 방법을 시도했고 결과적으로 Usehook-Form 공식문서를 통해 shouldUnregister:true를 정의하면 마지막 onsubmit 될때 register된 상태인 input의 form만 생성된다는 것을 알았습니다.
 
-<br>
-<br>
-- 5. 폼 데이터 안에서 이미지 보내는 기능 
-<br>
-<br>
+
+#### 폼 데이터 안에서 이미지 보내는 기능 
+
 <img src="https://user-images.githubusercontent.com/93697790/196628841-66341773-fa1b-4cbe-8eca-4b641e28f03d.gif"
 width="600px">
-<br>
-<br>
-- 6. 에디터 및 고객 폼 데이터 유효성 검사 기능 
-<br>
-<br>
+
+#### 에디터 및 고객 폼 데이터 유효성 검사 기능 
+
 <img src="https://user-images.githubusercontent.com/93697790/197449820-0fc53a72-70dc-4525-a4e9-8a1438ee7a42.gif"
 width="600px">
 
@@ -222,23 +249,13 @@ width="600px">
   )}
 />
 ```
-
 ErrorMessage라는 react-hook-form안에 있는 컴포넌트를 import하여 설정해서 커스텀해주었습니다. name은 해당 register된 이름과 동일하게 설정해주어야 원하는 동작을 하였고 message 또한 미리 설정해주어야 에러 객체가 있을때 message가 보여졌습니다.
 
-<br>
-<br>
-- 7. 고객 페이지 폼데이터 생성 기능 
-<br>
-<br>
-<img src="https://user-images.githubusercontent.com/93697790/197450258-3042aeb2-3bc0-48f1-b489-21d15804292c.gif"
-width="600px">
+
+#### 고객 페이지 폼데이터 생성 기능 
+
+<img src="https://user-images.githubusercontent.com/93697790/197450258-3042aeb2-3bc0-48f1-b489-21d15804292c.gif" width="600px">
+
 고객 페이지 폼데이터 또한 관리자 에디터 페이지와 마찬가지로 동일하게 useForm 라이브러리를 사용하여 생성 및 삭제해주었습니다. 
-<br>
 
-## 팀 프로젝트 노션 링크
 
-- [코다 노션 페이지로 가기](https://www.notion.so/wecode/e45886a68bc94c62bca33747dba8a43e)
-
-## 팀 회고록
-
-- [코다 회고록 보러가기](https://www.notion.so/wecode/90fad7f2897245e1bb79711d24f9a316)
