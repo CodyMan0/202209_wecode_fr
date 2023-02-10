@@ -13,100 +13,156 @@
 ## 목표 달성을 위해 만난 문제 해결 과정 💭
 
 <details>
-  <summary>폼을 만드는 에디터를 어떻게 만들 수 있을까?</summary>
+  <summary>리서치 에디터를 어떻게 만들 수 있을까?</summary>
 <br>
 
-- **상황 설명** : 관리자가 설문조사를 만드는 에디터 페이지와 만든 설문지의 링크를 고객에게 보내 고객의 설문을 받아야하는 고객 페이지가 필요했습니다.
+- **문제 상황** : 관리자가 리서치를 만드는 에디터 페이지와 완성된 리서치 설문지의 링크를 고객에게 보내 고객의 설문을 받아야하는 고객 페이지가 필요한 상황.
+
   <br>
 
-- **정의** : 프론트 단에서 **JSON 객체 형식**으로 데이터를 만들어 백앤드 서버로 보내면 되지 않을까.
-  <br>
+- **문제 정의** :
 
-- **해결 과정** : 다양한 라이브러리나 공식문서를 찾아본 결과, survey.js와 react-hook-form 두가지를 비교하여 우리 팀의 상황에 적합한 기술을 채택하기로 하였습니다.
+  - 어떻게 **JSON API**를 만들 것인가?
+  - 프론트단에서 컴포넌트를 계층화하기 쉬운 **JSON API**의 형식을 어떻게 정의할 것인가?
+    <br>
 
-  1. **survey.js**를 사용하여 손쉽게 JSON 형식으로 프론트단에서 가공하여 만든 데이터를 활용하여 UI로 보여주고려 했으나 JSON 데이터를 UI로 변환하는 것은 무료이지만 사용자가 직접 UI를 통해 JSON 데이터를 만드는 부분은 유료 서비스여서 **보류**하기로 했습니다.
+- **문제 해결 과정**
 
-  2. **react-hook-form**을 활용하여 JSON 형식의 데이터를 만들 수 있다는 것을 알았지만 주어진 2주라는 시간안에 배워서 결과물을 만드는데 있어 챌린징한 상황이었습니다.
+  > 어떻게 **JSON API**를 만들 것인가?
 
-- **공부한 부분** : surveyJs Library, react-hook-form
+  1. **survey.js**를 사용하여 손쉽게 JSON 형식으로 프론트단에서 가공하여 만든 데이터를 활용하여 UI로 보여주고려 했으나 JSON 데이터를 UI로 변환하는 것은 무료이지만 사용자가 직접 UI를 통해 JSON 데이터를 만드는 부분은 유료 서비스여서 어려움이 있다고 판단하였습니다.
+
+  2. **react-hook-form**을 활용하여 JSON 형식의 데이터를 만들 수 있다는 것을 알았지만 2주라는 짧은 기간 가운데 배워서 결과물을 만드는데 있어 챌린징한 상황이었습니다. 그럼에도 불구하고 react-hook-form을 사용하기로 정하였습니다.
+
+    <br>
+
+  > 프론트단에서 **컴포넌트**를 계층화하기 쉬운 **JSON API**의 형식을 어떻게 정의할 것인가?
+
+  1. 주어진 10일의 개발 기간 중 3일 안에 react-hook-form을 익혀 프론트단에서 컴포넌트를 계층화하기 쉽도록 JSON API mock-data를 제시하기로 의견 제시.
+
+  2. 3일 간, react-hook-form 공식 문서 전체를 3번 이상 읽고 학습하여, 리서치 에디터 UI에 따른 JSON mock-data를 제공하여 백앤드 개발자와 동료 프론트엔드 개발자에게 공유.
+     <br>
+  3. Mock-data 중 추가해야하거나 수정해야하는 부분은 그 즉시, 노션을 통해 팀원들에게 공유.
+
+- **공부한 부분** : surveyJs Library, react-hook-form, JSON 데이터 포멧
 - **경험** : 사용할 기술 스택에 대한 이해도가 낮은 상황에서 학습과 실전 프로젝트를 병행하여 압박감 속에서 결과물을 만들어낸 경험을 했습니다.
 </details>
 
 <details>
-<summary>선택 질문 항목의 요소를 클릭하면 그에 따른 UI가 그려지도록</summary>
+<summary>에디터 설문지 제출 클릭시, 서버로 2번 이상 전송되는 문제 직면</summary>
 <br>
 
-- **상황 설명** :
-- **정의** : setFormList(전역 상태)is not iterable (순회가 가능하지 않다고 한다.)
-- **해결 과정** : 함수형 업데이트를 활용하였다.
-- **공부한 부분** : 함수형 업데이트
-- **경험** :
-</details>
+- **문제 상황** : 에디터 페이지에서 항목들을 추가하고 "다음" 버튼을 누르면 모달창이 나옵니다. 그 후, 완료 버튼을 누르면 form data가 한번 보내져야하지만 두번 보내집니다. 백앤드에서는 설문지에 따라 ID를 부여합니다. 그에 따라 링크를 생성하는데 동일한 설문지를 두번 이상 보내면 동일한 설문지임에도 불구하고 서로 다른 링크가 생성되는 문제가 있었습니다.
 
-<details>
-<summary>설문지를 만들고 제출을 눌렀는데 데이터가 서버로 2번 이상 전송되는 문제.</summary>
 <br>
 
-- **상황 설명** : 백앤드에서는 설문지에 따라 숫자를 부여합니다. 그에 따라 링크를 생성하는데 동일한 설문지를 두번 이상 보내면 동일한 설문지인데 다른 링크가 생성되는 문제가 있었습니다.
+- **문제 정의** : react-hook-form 미숙한 사용 문제라고 정의 및 렌더링 문제
 
-- **정의** : 랜더링 문제
-- **해결 과정** :
-  1. 다음으로 가기 버튼을 button element에서 p element로 바꾸니 해결. 하지만 근본적인 문제 해결은 아니었다.
-  2. 근본적인 문제는 다음으로 가기를 버튼이 type="submit"이었다는 것. 알고 보니 styled-component의 button의 기본 타입이 submit이어서 type="button"을 지정해주니 form element안에서 렌더링이 일어나지 않는다는 것을 확인하여 해결.
-- **공부한 부분** : styled-component , 기본적인 html form,input,button elements
+<br>
+
+- **문제 해결 과정**
+  <div style="display:flex; flex-direction:raw; ">
+  <img style="width:50%;" src="/public/images/next.png" alt='next'/>
+  <img style="width:50%;" src="/public/images/submit.png" alt="submit"/>
+  <div>
+
+> "다음" button 클릭시, form이 submit되는 문제
+
+1. button을 p element로 바꿔보니 해결, 하지만 semantic html의 관점에서는 상당히 불편했습니다. 찾아보니 다음으로 가기 클릭시, 상위 컴포넌트에 있는 **useForm이 submit** 되는 근본적인 문제를 발견하였습니다. styledComponent 공식 문서를 찾아보니, **styledComponent의 button의 기본 type이 submit**이라는 것을 알게 됐습니다.
+   <br>
+2. "다음" button을 styledComponent가 아닌 일반 css를 사용하여 button type을 button으로 설정하여 해결.
+
+<br>
+
+- **공부한 부분** : styled-component , semantic HTMl, HTML/CSS
 - **경험** : 복잡해보이는 문제지만 결국 기본적인 원인으로 인해 파생된 문제일 수 있다는 것을 경험.
-</details>
-
-<details>
-<summary>CORS 문제</summary>
-<br>
-
-- **상황 설명** :
-- **정의** :
-- **해결 과정** :
-- **공부한 부분** :
-- **경험** :
 
 </details>
 
 <details>
-<summary>관리자 설정하러 가기를 눌렀을때 해당 페이지 인풋 유효성 검사</summary>
+<summary>이전 페이지 유효성 검사</summary>
+
+<br>
+<img src="/public/images/check.png" alt='inputCheck'/>
+
+- **문제 상황** : 관리자 리서치를 만드는데 2단계가 필요합니다. 설문 제목, 날짜 질문들을 추가하여 다음 버튼을 누르면 Modal이 뜨고 익명 여부, 사용자 랜딩 페이지 설정을 하는 기능이 있습니다. 하지만 당시 모달페이지의 제출하기를 눌러야 useForm 안에 있는 각 인풋들에 대한 유효성 검사가 이루어졌기에 모달을 끄거나 뒤로가기를 통해 정정해야했습니다. 불편한 UX라고 판단하였습니다.
+
 <br>
 
-- **상황 설명** : 관리자 설문조사를 만드는데 현재 2단계입니다. 설문 제목, 날짜 질문들을 추가하여 설정한 후 관리자 설정하러 가기를 누르면 Modal이 등장하여 익명 여부, 사용자 랜딩 페이지 설정들의 기능이 있습니다. 하지만 당시 모달페이지의 제출하기를 눌러야 모든 인풋에 대한 유효성 검사가 이루어졌기에 모달을 끄거나 뒤로가기를 통해 정정해야했습니다. UI/UX 측면에서도 떨어졌습니다.
+- **문제 정의** :
 
-- **정의** : 유효성 검사를 하는 시점을 조절할 수 있는 react-hook-form의 내장 함수가 있지 않을까?
-- **해결 과정** :
+  1. UX를 변경하는 것.
 
-  1. 현재 2단계의 제출하기를 눌러야 전체적인 렌더링이 이루어지는 상황이어서 유효성 검사도 마지막에 일어납니다. 공식 문서를 통해 찾아보니 폼의 인풋 유효성 검사를 수동으로 해주는 **trigger**라는 내장 함수를 알게 됐습니다.
-  2. trigger 내장 함수를 사용해서 시도했으나 트리거 됐을떄 errors 객체에 담겨서 한번 늦게 실행한다는 문제
-     **문제 상황** : Trigger 함수는 세가지 유효성 검사를 수동으로 진행시켜 유효하지 않으면 해당 함수 밖에 선언된 errors 객체에 각 property를 추가시킨다. 하지만 onClickHandler가 실행될 당시 Errors는 빈객체여서 아래에 있는 기능이 무효한 상황
-     **2번에 대한 해결 과정**: 외부에 있는 errors 객체를 활용하는게아니라 async 함수 내에서 비동기적으로 받은 데이터의 값이 있는지 없는지에 따라 trigger 함수는 호출하면 되겠다!!
+  2. 유효성 검사를 하는 시점을 조절할 수 있는 react-hook-form의 내장 함수가 있지 않을까?
 
-  - before
-    <img src="/public/images/%EC%97%90%EB%9F%AC1.png" alt="beforeErrorImg">
+<br>
 
-  - after
+- **문제 해결 과정**
 
-    <img src="/public/images/afterError.png" alt="afterErrorImg" style="width:300px">
+> react-hook-form의 내장 함수로 유효성 검사의 시점을 조절
 
-- **공부한 부분** : async await, Promise, callBack,
-- **경험** :
+1. 현재 2단계의 제출하기를 눌러야 전체적인 렌더링이 이루어지는 상황이어서 유효성 검사도 마지막에 일어납니다. 공식 문서를 통해 찾아보니, 폼의 인풋 유효성 검사를 수동으로 해주는 **trigger**라는 내장 함수를 알게 됐습니다.
+   <br>
+
+> 비동기 함수를 동기적으로 사용
+
+2. trigger 내장 함수를 사용해서 시도했으나 트리거 됐을떄, errors 객체의 값을 trigger를 포함하지 않은 값이 담겨 원하는대로 동작하지 않는 상황이 발생하였습니다.
+
+- before
+  <img src="/public/images/%EC%97%90%EB%9F%AC1.png" alt="beforeErrorImg">
+
+- after
+
+  <img src="/public/images/afterError.png" alt="afterErrorImg" style="width:300px">
+  
+  **비동기 함수를 동기적으로 사용**하기 위해 **async await**을 활용하여 값을 사용하여 onClickHandler로 넘겨주는 방식으로 문제 해결
+<br>
+
+- **공부한 부분** : async await, Promise, callBack, 동기와 비동기
+- **경험** :async await을 활용하여 비동기를 동기화하여 값으로 사용해서 문제를 해결하였습니다. 더 나아가 비동기의 값을 사용할때 주의해야하는 점을 이해하였습니다.
 
 </details>
 
 <details>
-<summary>7. 폼안에서 선택 질문을 삭제했음에도 고객 페이지의 UI에는 반영되지 않는 문제</summary>
+<summary>useForm안에서 추가된 질문 항목 삭제가 반영되지 않는 문제</summary>
 <br>
-- **상황 설명** :
 
-- **정의** :
-- **해결 과정** :
+- **문제 상황** : 관리자 에디터에서 추가된 질문을 삭제하였지만 정작 고객 페이지에 삭제가 되지 않고 보여지는 상황
+
+<br>
+
+- **문제 정의** :
+
+1. 질문 선택 항목을 추가할땐 register 매소드를 활용하여 Form 데이터에 추가하지만 삭제 버튼을 클릭하면 해당 질문의 id값만 지우는 것이 문제.
+
+2. unregister과 삭제 버튼과 연동.
+
+<br>
+
+> react-hook-form 내장 함수를 활용
+
+- **문제 해결 과정**
+
   1. unregister : 삭제하기 위해 click한 애들의 아이디를 배열로 저장해서 완료버튼을 누를때 unregister하려고 했으나 생각대로 안됐고 하루 종일 했는데 안된 상황.
-  2. 다음 날 공식 문서에서 shouldUnregister : true를 발견하고 넣어봤는데 마지막에 있는 데이터만 자동으로 인식해서 폼으로 만들어지는 놀라운 함수 발견 ==shouldUnregister: true==를 붙혀주니깐 됐다!!!!!! 어렵게 생각했는데 useForm 안에서 내장 함수가 있었다...
-- **공부한 부분** :
-- **경험** :
+     <br>
 
+  ```js
+  const methods = useForm({
+    shouldUnregister: true, // <--
+  });
+
+  const {
+    register,
+    formState: { errors },
+  } = methods;
+  ```
+
+  2. 다음 날 공식 문서에서 shouldUnregister : true를 발견하고 넣어봤는데 마지막에 있는 데이터만 자동으로 인식해서 폼으로 만들어지는 놀라운 함수 발견 **shouldUnregister: true**를 붙혀주니 해결
+
+<br>
+
+- **공부한 부분** : react-hook-form , state props
+- **경험** : 제한된 시간 안에 QA 검수를 통해 나온 에러를 해결한 경험
 </details>
 
 ## BPS Form – Survey Tool 프로젝트

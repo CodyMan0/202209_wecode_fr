@@ -10,7 +10,6 @@ const MultipleSingle = ({ sortIndex, onRemove, formId, option }) => {
   const { register } = useFormContext();
 
   const [optionIndexes, setOptionIndexes] = useState(Object.keys(option));
-  console.log(optionIndexes);
 
   const addNewFlight = () => {
     setOptionIndexes([...optionIndexes, optionIndexes.length.toString()]);

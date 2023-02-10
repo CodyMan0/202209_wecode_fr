@@ -1,17 +1,17 @@
 import React from 'react';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import { formListState } from '../store/store';
 import styled from 'styled-components';
 
 const OptionBox = ({ title, options, formNum, setFormNum }) => {
-  const setFormList = useSetRecoilState(formListState);
+  const [formList, setFormList] = useRecoilState(formListState);
 
   const clickOption = idx => {
     setFormNum(formNum + 1);
-    setFormList(prev => ({
+    setFormList({
       surveyName: '',
       formData: [
-        ...prev.formData,
+        ...formList.formData,
         {
           id: formNum + 1,
           type: idx,
@@ -19,7 +19,7 @@ const OptionBox = ({ title, options, formNum, setFormNum }) => {
           options: [''],
         },
       ],
-    }));
+    });
   };
 
   return (

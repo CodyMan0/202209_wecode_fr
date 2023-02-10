@@ -160,12 +160,9 @@ const SurveyEditor = ({ setOpenEditorModal, id }) => {
           </Button>
           <Button
             type="button"
-            onClick={async () => {
-              const result = await trigger([
-                'surveyName',
-                'startDate',
-                'endDate',
-              ]);
+            onClick={() => {
+              const result = trigger(['surveyName', 'startDate', 'endDate']);
+
               if (result) {
                 onClickHandler(errors);
               }

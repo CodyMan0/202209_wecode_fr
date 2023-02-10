@@ -28,6 +28,7 @@ const Editor = () => {
   } = methods;
 
   const [formNum, setFormNum] = useRecoilState(formNumState);
+
   const setLinkData = useSetRecoilState(linkState);
   const [openEditorModal, setOpenEditorModal] = useRecoilState(openState);
   const adminToken = localStorage.getItem('token');
